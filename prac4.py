@@ -57,18 +57,18 @@ def readADC(channel):
 
 def tempVal():
     i=readADC(1)
-
+    
     return 0
     
 def potVal():
     i=readADC(2)
-
-    return 
+    i=(i/1023.0)*3.3 
+    return i
 
 def lightVal():
     i=readADC(3)
-
-    return 0
+    i=(i/1023.0)*100 
+    return i
 
 
 #default loop
@@ -80,7 +80,7 @@ try:
             if ic<5:
                 sList[ic]=s
             ic=ic+1
-        time.sleep(freq)
+        time.sleep(freqs[freq])
 
 except KeyboardInterrupt:
     spi.close()
